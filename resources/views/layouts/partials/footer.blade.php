@@ -1,5 +1,5 @@
 
-<footer class="bg-burnt_sienna text-white p-4 mt-8 ">
+<footer class="bg-tekhelet text-white p-4 mt-8 ">
     <div class="max-w-7xl mx-auto">
         <div class="text-center">
             <div class="mb-4  ">

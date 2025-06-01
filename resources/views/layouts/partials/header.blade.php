@@ -1,34 +1,29 @@
-<nav class="bg-charcoal p-4">
-            <div class="max-w-7xl mx-auto flex justify-between items-center">
-                <div class="flex space-x-4">
-                    <a href="/" class="text-white hover:text-persian_green">Inicio</a>
-                    <div class="relative group ">
-                        <!--boton principal -->
-                        <button class="text-white hover:text-persian_green focus:outline-none">
-                            Categorías
-                        </button>
-                        
-                        <!--menu desplegable -->
-                        <ul class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-1">
+<nav class="bg-russian_violet p-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="hidden space-x-8 sm:-my-px sm:ms-1 sm:flex items-center text-xl">
+            <a href="/" class="text-white hover:text-mauve">Inicio</a>
+            <!-- Categorías desplegable -->
+            <div class="relative group ">
+                <button class="text-white font-semibold  hover:text-mauve focus:outline-none text-xl">
+                    Categorías
+                </button>
+                <div class="absolute hidden group-hover:block bg-white shadow-md  rounded">
+                    <ul class="py-2">
+                        @foreach ($navCategories as $categoria)
                             <li>
-                                <a href="/category/index" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Index</a>
+                                <a href="{{ route('publica.categoria', $categoria->id) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">
+                                    {{ $categoria->nombre }}
+                                </a>
                             </li>
-                            <li>
-                                <a href="/category/edit/1" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Edit</a>
-                            </li>
-                            <li>
-                                <a href="/category/show/1" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Show</a>
-                            </li>
-                            <li>
-                                <a href="/category/create" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Create post</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="flex space-x-4">
-                    <a href="/login" class="text-white hover:text-persian_green">Login</a>
-                    <a href="/register" class="text-white hover:text-persian_green">Registrarse</a>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-        </nav>
+        </div>
+                
+        <div class="flex space-x-4 text-xl">
+            <a href="/login" class="text-white hover:text-mauve">Login</a>
+            <a href="/register" class="text-white hover:text-mauve">Registrarse</a>
+        </div>
+    </div>
+</nav>

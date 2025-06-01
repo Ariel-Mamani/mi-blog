@@ -1,9 +1,9 @@
-<x-app-layout>
-    <x-slot name="header" >
-        <div class="p-6 text-center">
-            <h1 class="text-3xl text-persian_indigo font-bold">Categoria: {{ $categoria->nombre }}</h1>
-        </div>
-    </x-slot>
+@extends('layouts.plantilla')
+
+@section('content')
+    <h1 class="text-3xl text-persian_indigo font-bold text-center">
+        Categoria: {{ $categoria->nombre }}
+    </h1>
 
     <div class="max-w-4xl mx-auto mt-8">
         @if($posts->count())
@@ -20,4 +20,4 @@
             <p>No hay posts en esta categoria.</p>
         @endif
     </div>
-</x-app-layout>
+@endsection

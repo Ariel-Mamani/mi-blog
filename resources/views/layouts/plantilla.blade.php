@@ -6,7 +6,7 @@
         <title>@yield('title', 'Mi Blog')</title>
         @vite('resources/css/app.css')
 </head>
-<body class=" bg-saffron">
+<body class=" bg-mauve">
     <!-- header -->
     <!-- nav -->
     @include('layouts.partials.header')

@@ -3,20 +3,28 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
+// use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CategoryController;
 
-Route::get('/', function () {
-    return view('layouts.plantilla');
-});
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/categoria/{id}', [CategoryController::class, 'postsPorCategoria'])->name('publica.categoria');
 
-Route::get('/dashboard', [AuthenticatedSessionController::class, 'index'])
+
+
+Route::get('/inicio', [PostController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::resource('posts', PostController::class);
+
+Route::get('/inicio/categoria/{id}', [CategoryController::class, 'show'])->name('categories.show');
+
+Route::get('/inicio/mis-posts', [PostController::class, 'misPosts'])->name('posts.misposts')->middleware(['auth', 'verified']);
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

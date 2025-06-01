@@ -1,33 +1,65 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-russian_violet text-white ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class="shrink-0 flex items-center ">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <h2>BBBBB</h2>
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Inicio') }}
-                    </x-nav-link>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-1 sm:flex items-center">
+                    <!-- Inicio -->
+                    <a href="{{ route('dashboard') }}"
+                    class="text-white text-xl hover:text-blue-500 focus:outline-none {{ request()->routeIs('dashboard') ? 'font-bold underline' : '' }}">
+                        Inicio
+                    </a>
+
+                    
+                    <!-- Categorías desplegable -->
+                    <div class="relative group ">
+                        <button class="text-white font-semibold  hover:text-blue-500 focus:outline-none text-xl">
+                            Categorías
+                        </button>
+                        <div class="absolute hidden group-hover:block bg-white shadow-md  rounded">
+                            <ul class="py-2">
+                                @foreach ($navCategories as $categoria)
+                                    <li>
+                                        <a href="{{ route('categories.show',    $categoria->id) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">
+                                                {{ $categoria->nombre }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Mis posts -->
+                    <a href="{{ route('posts.misposts') }}"
+                    class="text-white text-xl hover:text-blue-500 focus:outline-none">
+                        Mis posts
+                    </a>
+
+                    <!-- Boton + -->
+                    <a href="{{ route('posts.create') }}"
+                    class="text-3xl text-white hover:text-blue-500 focus:outline-none">
+                        +
+                    </a>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center sm:ms-6 ">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger" >
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-russian_violet hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 ">
                             
                             {{-- Si el usuario no tiene una imagen cargada muestra una por defecto --}}
-                            <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-16 h-16 rounded-full" >
-                            <div>{{ Auth::user()->name}}</div>
+                            <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-10 h-10 rounded-full " >
+                            <div class="p-2 text-white text-xl">{{ Auth::user()->name}}</div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -88,7 +120,6 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
-
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

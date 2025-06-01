@@ -45,11 +45,5 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
-    }
-
-    public function index()
-    {
-        $posts = Post::all(); 
-        return view('dashboard', compact('posts'));
-    }
+    }    
 }

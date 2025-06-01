@@ -15,11 +15,14 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                charcoal: '#264653',
-                persian_green: '#2a9d8f',
-                saffron: '#e9c46a',
-                sandy_brown: '#f4a261',
-                burnt_sienna: '#e76f51',
+                russian_violet: '#10002b',
+                russian_violet_alt: '#240046', 
+                persian_indigo: '#3c096c',
+                tekhelet: '#5a189a',
+                french_violet: '#7b2cbf',
+                amethyst: '#9d4edd',
+                heliotrope: '#c77dff',
+                mauve: '#e0aaff'
             }
         },
     },
