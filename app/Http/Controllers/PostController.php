@@ -45,10 +45,10 @@ class PostController extends Controller
         $post->titulo = $request->titulo;
         $post->contenido = $request->contenido;
         $post->user_id = auth()->id();
-        $post->category_id = $request->category_id; 
-        $post->habilitated = true;  
+        $post->category_id = $request->category_id;
+        $post->habilitated = true;
 
-        if($request->hasFile('imagen')){
+        if ($request->hasFile('imagen')) {
             $path = $request->file('imagen')->store('posters', 'public');
             $post->imagen = '/storage/' . $path;
         }
@@ -70,6 +70,16 @@ class PostController extends Controller
         //
     }
 
+    public function getEdit($id)
+    {
+        $post = Post::findOrFail($id);
+        $categorias = Category::all();
+
+        // Pasar el post a la vista
+        return view('posts.edit', compact('post', 'categorias'));
+        // return view('category.edit', ['id' => $id]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -81,9 +91,31 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titulo' => 'required|string|max:255',
+            'contenido' => 'required|string',
+            'imagen' => 'image|max:2048',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+        // Buscar el post
+        $post = Post::findOrFail($id);
+
+        $post->titulo = $request->titulo;
+        $post->contenido = $request->contenido;
+        $post->user_id = auth()->id();
+        $post->category_id = $request->category_id;
+        $post->habilitated = $request->has('habilitated');
+
+        if ($request->hasFile('imagen')) {
+            $path = $request->file('imagen')->store('posters', 'public');
+            $post->imagen = '/storage/' . $path;
+        }
+        $post->update();
+
+        // Redirigir a la lista de posts con un mensaje de éxito
+        return redirect()->route('posts.edit', ['id' => $id])->with('success', 'Post actualizado correctamente.');
     }
 
     /**

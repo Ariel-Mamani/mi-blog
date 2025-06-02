@@ -11,8 +11,6 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/categoria/{id}', [CategoryController::class, 'postsPorCategoria'])->name('publica.categoria');
 
-
-
 Route::get('/inicio', [PostController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -23,8 +21,9 @@ Route::get('/inicio/categoria/{id}', [CategoryController::class, 'show'])->name(
 
 Route::get('/inicio/mis-posts', [PostController::class, 'misPosts'])->name('posts.misposts')->middleware(['auth', 'verified']);
 
+Route::get('/post/edit/{id}', [PostController::class, 'getEdit'])->middleware(['auth', 'verified'])->name('posts.edit');
 
-
+Route::patch('/postt/edit/{id}', [PostController::class, 'update'])->name('posts.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -32,4 +31,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

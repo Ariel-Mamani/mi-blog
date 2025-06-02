@@ -8,6 +8,7 @@
     <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-amethyst overflow-hidden shadow-xl sm:rounded-lg p-5">
+      
                 @foreach($posts as $post)
                     <div class="mb-8 p-4  rounded-lg bg-persian_indigo list-none text-white">
                         <li><img src={{ $post->imagen }} alt={{ $post->titulo }} class="w-full h-64 object-cover mb-3 rounded-lg"></li>

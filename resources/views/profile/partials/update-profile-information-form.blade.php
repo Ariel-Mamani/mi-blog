@@ -13,9 +13,9 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="POST" action="{{ route('profile.update') }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
         @csrf
-        @method('patch')
+        @method('PATCH')
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -46,6 +46,11 @@
                 </div>
             @endif
         </div>
+
+          <div>
+        <label class="block mb-2">Seleccione una imagen:</label>
+        <input type="file" name="imagen" class="block mb-4">
+    </div>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
