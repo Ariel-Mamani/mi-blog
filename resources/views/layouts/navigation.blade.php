@@ -1,24 +1,22 @@
-<nav x-data="{ open: false }" class="bg-russian_violet text-white ">
+<nav x-data="{ open: false }" class="bg-russian_violet p-4">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center ">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-1 sm:flex items-center">
                     <!-- Inicio -->
+                    <div class="flex items-center " style="width:10%">
+                        <a href="/inicio">
+                            <img src="{{ asset('img/miblog.jpg') }}" alt="Logo" class="fill-current text-gray-500">
+                        </a>
+                    </div>
                     <a href="{{ route('dashboard') }}"
-                    class="text-white text-xl hover:text-blue-500 focus:outline-none {{ request()->routeIs('dashboard') ? 'font-bold underline' : '' }}">
+                        class="text-white text-xl hover:text-blue-500 focus:outline-none {{ request()->routeIs('dashboard') ? 'font-bold underline' : '' }}">
                         Inicio
                     </a>
 
-                    
                     <!-- Categorías desplegable -->
                     <div class="relative group ">
                         <button class="text-white font-semibold  hover:text-blue-500 focus:outline-none text-xl">
@@ -27,11 +25,11 @@
                         <div class="absolute hidden group-hover:block bg-white shadow-md  rounded">
                             <ul class="py-2">
                                 @foreach ($navCategories as $categoria)
-                                    <li>
-                                        <a href="{{ route('categories.show',    $categoria->id) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">
-                                                {{ $categoria->nombre }}
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a href="{{ route('categories.show',    $categoria->id) }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200">
+                                        {{ $categoria->nombre }}
+                                    </a>
+                                </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -39,13 +37,13 @@
 
                     <!-- Mis posts -->
                     <a href="{{ route('posts.misposts') }}"
-                    class="text-white text-xl hover:text-blue-500 focus:outline-none">
+                        class="text-white text-xl hover:text-blue-500 focus:outline-none">
                         Mis posts
                     </a>
 
                     <!-- Boton + -->
                     <a href="{{ route('posts.create') }}"
-                    class="text-3xl text-white hover:text-blue-500 focus:outline-none">
+                        class="text-3xl text-white hover:text-blue-500 focus:outline-none">
                         +
                     </a>
                 </div>
@@ -54,11 +52,11 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6 ">
                 <x-dropdown align="right" width="48">
-                    <x-slot name="trigger" >
+                    <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-russian_violet hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 ">
-                            
+
                             {{-- Si el usuario no tiene una imagen cargada muestra una por defecto --}}
-                            <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-10 h-10 rounded-full " >
+                            <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-10 h-10 rounded-full ">
                             <div class="p-2 text-white text-xl">{{ Auth::user()->name}}</div>
 
                             <div class="ms-1">
@@ -67,7 +65,7 @@
                                 </svg>
                             </div>
                         </button>
-                        
+
                     </x-slot>
 
                     <x-slot name="content">
@@ -80,7 +78,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -125,7 +123,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
