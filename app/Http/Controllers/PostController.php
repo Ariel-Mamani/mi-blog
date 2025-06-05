@@ -88,11 +88,6 @@ class PostController extends Controller
         return view('layouts.detalle', compact('post'));
     }
 
-    public function verDetallePriv($id)
-    {
-        $post = Post::findOrFail($id);
-        return view('layouts.detallePriv', compact('post'));
-    }
     /**
      * Show the form for editing the specified resource.
      */

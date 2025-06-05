@@ -3,9 +3,14 @@
         <div class="dark:bg-gray-900 text-white p-6 
             border-4 border-gray-900 
             [box-shadow:5px_0_0_0_#212121,-5px_0_0_0_#212121,0_5px_0_0_#212121,0_-5px_0_0_#212121]">
-            <h1 class=" text-xl md:text-3xl text-center mb-6 glitch-effect ">
-            Bienvenido <span class="text-sky-400">{{ Auth::user()->name}}</span> a <span class="text-amethyst">DevNexus</span>
+            <h1 class="text-xl md:text-3xl text-center mb-6 glitch-effect">
+                Bienvenido 
+                <span class="text-sky-400">
+                    {{ Auth::check() ? Auth::user()->name : 'invitado' }}
+                </span> 
+                a <span class="text-amethyst">DevNexus</span>
             </h1>
+
             <p class=" text-xl text-white text-center max-w-2xl mx-auto">
                 <span class="animate-ping">< </span>Un espacio donde la <span class="text-amethyst">tecnología</span>, el <span class="text-amethyst">código</span> y el <span class="text-amethyst">diseño</span> se encuentran. Crea, comparte y aprende con la comunidad
                 <span class="animate-ping">/></span>

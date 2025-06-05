@@ -1,4 +1,4 @@
-@extends('layouts.plantilla')
+<x-app-layout>
 
 @section('content')
     <div class="max-w-5xl mx-auto px-4 py-8">
@@ -33,4 +33,4 @@
             </a>
         </div>
     </div>
-@endsection
+</x-app-layout>

@@ -1,5 +1,4 @@
-@extends('layouts.plantilla')
-@section('content')
+<x-app-layout>
     <x-guest-layout>
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -52,4 +51,4 @@
             </div>
         </form>
     </x-guest-layout>
-@endsection
+</x-app-layout>
