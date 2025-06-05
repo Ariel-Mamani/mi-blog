@@ -23,10 +23,14 @@
                         <p class="text-gray-700 dark:text-gray-300 mb-4">
                             {{ Str::limit($post->contenido, 500) }}
                         </p>
+                        <div class="flex justify-center items-center hover:-translate-y-1 transition-transform duration-300">
+                            <a href="/detalle/{{$post->id}}" class="bg-pink-500 rounded-sm p-2  hover:bg-pink-700 cursor-pointer text-white" value="Ver mas">Ver mas</a>
+                        </div>
                 </div>
             @endforeach
         @else
             <p>No hay posts en esta categoria.</p>
         @endif
+        
     </div>
 @endsection

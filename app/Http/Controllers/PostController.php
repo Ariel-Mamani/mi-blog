@@ -80,6 +80,19 @@ class PostController extends Controller
         // return view('category.edit', ['id' => $id]);
     }
 
+
+    // Funcion para ver el detalle de un Post
+    public function verDetalle($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('layouts.detalle', compact('post'));
+    }
+
+    public function verDetallePriv($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('layouts.detallePriv', compact('post'));
+    }
     /**
      * Show the form for editing the specified resource.
      */

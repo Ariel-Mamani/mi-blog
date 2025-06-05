@@ -11,11 +11,14 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/categoria/{id}', [CategoryController::class, 'postsPorCategoria'])->name('publica.categoria');
 
+Route::get('/detalle/{id}', [PostController::class, 'verDetalle']);
+
 Route::get('/inicio', [PostController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
 Route::resource('posts', PostController::class);
+
 
 Route::get('/inicio/categoria/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
@@ -24,6 +27,8 @@ Route::get('/inicio/mis-posts', [PostController::class, 'misPosts'])->name('post
 Route::get('/post/edit/{id}', [PostController::class, 'getEdit'])->middleware(['auth', 'verified'])->name('posts.edit');
 
 Route::patch('/postt/edit/{id}', [PostController::class, 'update'])->name('posts.update');
+
+Route::get('/inicio/detalle/{id}', [PostController::class, 'verDetallePriv']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
