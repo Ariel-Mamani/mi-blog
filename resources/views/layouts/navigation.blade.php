@@ -9,7 +9,7 @@
                     <!-- Inicio -->
                     <div class="flex items-center " style="width:10%">
                         <a href="/inicio">
-                            <img src="{{ asset('img/miblog.jpg') }}" alt="Logo" class="fill-current text-gray-500">
+                            <img src="{{ asset('img/logoTP3.png') }}" alt="Logo" class="drop-shadow-[0_0_4px_rgba(225,225,225,0.8)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,1)] transition-all duration-300">
                         </a>
                     </div>
                     <a href="{{ route('dashboard') }}"
@@ -56,7 +56,7 @@
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-russian_violet hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 ">
 
                             {{-- Si el usuario no tiene una imagen cargada muestra una por defecto --}}
-                            <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-10 h-10 rounded-full ">
+                            <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-14 h-14 rounded-full   object-cover">
                             <div class="p-2 text-white text-xl">{{ Auth::user()->name}}</div>
 
                             <div class="ms-1">
@@ -70,7 +70,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Perfil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -80,7 +80,7 @@
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Cerrar sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -88,7 +88,7 @@
             </div>
 
             <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
+            <div class="-me-2 flex items-center sm:hidden ">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

@@ -13,6 +13,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                pixel: ['Silkscreen', 'monospace'],
             },
             colors: {
                 russian_violet: '#10002b',

@@ -19,7 +19,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         $categoria = Category::findOrFail($id);
-        $posts = $categoria->posts; 
+        $posts = $categoria->posts()->where('habilitated', true)->get(); 
         return view('category.show', compact('categoria', 'posts'));
     }
 

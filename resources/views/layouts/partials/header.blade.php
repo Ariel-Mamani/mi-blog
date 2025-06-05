@@ -5,7 +5,7 @@
             <!-- Logo -->
             <div class="flex items-center " style="width:10%">
                 <a href="/">
-                    <img src="{{ asset('img/miblog.jpg') }}" alt="Logo" class="fill-current text-gray-500">
+                    <img src="{{ asset('img/logoTP3.png') }}" alt="Logo" class="drop-shadow-[0_0_4px_rgba(225,225,225,0.8)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,1)] transition-all duration-300">
                 </a>
             </div>
             <a href="/" class="text-white hover:text-mauve">Inicio</a>
