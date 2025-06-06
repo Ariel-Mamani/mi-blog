@@ -17,16 +17,15 @@
 </head>
 
 <body class=" text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center p-6 sm:pt-0 bg-russian_violet rounded-lg">
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <div class="w-full max-w-lg mx-auto min-h-screen  flex flex-col sm:justify-center items-center p-6 sm:pt-0 bg-russian_violet rounded-lg mt-5">
+        <div class="mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
             <a href="/">
-                <img src="{{ asset('img/logoTP3.png') }}" alt="Logo" class="fill-current text-gray-500">
+                <img src="{{ asset('img/logoTP3.png') }}" alt="Logo" class="mx-auto h-20">
             </a>
             <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white  overflow-hidden sm:rounded-lg">
                 {{ $slot }}
             </div>
         </div>
-      
     </div>
 </body>
 

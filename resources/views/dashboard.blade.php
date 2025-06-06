@@ -49,7 +49,7 @@
             </div>
         </div>
         @empty
-            <p class="text-center text-gray-600 dark:text-gray-400">No hay posts publicados todavía.</p>
+            <p class="text-center text-russian_violet">No hay posts publicados todavía.</p>
         @endforelse
     </div>
     

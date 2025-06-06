@@ -36,7 +36,7 @@
             </div>
         </div>
         @empty
-            <p class="text-center text-gray-600 dark:text-gray-400">
+            <p class="text-center text-russian_violet d">
                 No hay post de esta categoria.
             </p>
         @endforelse

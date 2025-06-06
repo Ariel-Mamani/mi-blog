@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-russian_violet p-4">
+<nav x-data="{ open: false }" class="bg-tekhelet p-4">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -61,7 +61,7 @@
                 @auth
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-russian_violet hover:text-gray-700 focus:outline-none transition ease-in-out duration-150 ">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-tekhelet hover:text-russian_violet focus:outline-none transition ease-in-out duration-150 ">
 
                                 {{-- Si el usuario no tiene una imagen cargada muestra una por defecto --}}
                                 <img src="{{ Auth::user()->imgUsuario ? Auth::user()->imgUsuario : 'https://img.freepik.com/vector-gratis/circulo-azul-usuario-blanco_78370-4707.jpg?semt=ais_hybrid&w=740' }}" alt="Imagen de usuario" class="w-14 h-14 rounded-full   object-cover">
