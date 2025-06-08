@@ -8,7 +8,7 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-1 sm:flex items-center">
                     <!-- Inicio -->
                     <div class="flex items-center " style="width:10%">
-                        <a href="/inicio">
+                        <a href="/">
                             <img src="{{ asset('img/logoTP3.png') }}" alt="Logo" class="drop-shadow-[0_0_4px_rgba(225,225,225,0.8)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,1)] transition-all duration-300">
                         </a>
                     </div>

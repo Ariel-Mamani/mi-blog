@@ -5,19 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 
-Route::get('/', function () {
-    return redirect()->route('dashboard');
-});
+Route::get('/', [PostController::class, 'index'])->name('dashboard');
 
-Route::get('/inicio/detalle/{id}', [PostController::class, 'verDetalle']);
-
-Route::get('/inicio', [PostController::class, 'index'])->name('dashboard');
+Route::get('/detalle/{id}', [PostController::class, 'verDetalle']);
 
 Route::resource('posts', PostController::class);
 
-Route::get('/inicio/categoria/{id}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categoria/{id}', [CategoryController::class, 'show'])->name('categories.show');
 
-Route::get('/inicio/mis-posts', [PostController::class, 'misPosts'])->name('posts.misposts')->middleware(['auth', 'verified']);
+Route::get('/mis-posts', [PostController::class, 'misPosts'])->name('posts.misposts')->middleware(['auth', 'verified']);
 
 Route::get('/post/edit/{id}', [PostController::class, 'getEdit'])->middleware(['auth', 'verified'])->name('posts.edit');
 
